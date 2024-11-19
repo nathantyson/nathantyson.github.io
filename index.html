@@ -1,6 +1,43 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0">
+    <title>How to Audio display only play pause 
+             and mute buttons in HTML5
+      </title>
+    <link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        button {
+            border: 3px solid #b1b3b4;
+            background-color: #287bd3;
+            color: white;
+            padding: 10px 20px;
+            margin: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            border-color: #afcff2;
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        i {
+            margin-left: 7px;
+        }
+    </style>
+</head>
 <body>
 <h1>Welcome to my blog</h1>
 <p>Are you a party animal? Do you like to rock off with your socks off? <br>
@@ -9,5 +46,45 @@
 	 and whisper sweet nothings. <br><br>
 	 
 	 Stay and listen, as my tunes bring you to climax.</p>
+
+<h2> Raindrop </h2>
+	<audio id = "music">
+		<source src = "Raindrop.wav" type = "audio/wav">
+	</audio>
+
+	<button onclick = "playAudio()" type = "button">
+		Play 
+		<i class = "fa-solid fa-play"></i>
+	</button>
+
+	<button onclick = "pauseAudio()" type = "button">
+		Pause 
+		<i class = "fa-solid fa-pause"></i>
+	</button>
+
+	<button onclick = "muteAudio()" type = "button">
+		Mute 
+		<i class = "fa-solid fa-volume-xmark"></i>
+	</button>
+
+	<script>
+        // get element from html
+        var audioT = document.getElementById("music");
+
+        // use play() method to play music
+        function playAudio() {
+            audioT.play();
+        }
+
+        //  use pause() method to play music
+        function pauseAudio() {
+            audioT.pause();
+        }
+
+        //  use muted to pause music
+        function muteAudio() {
+            audioT.muted = !audioT.muted;
+        }
+    </script>
 </body>
 </html>
